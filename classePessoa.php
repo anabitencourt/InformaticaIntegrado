@@ -1,4 +1,5 @@
 <?php
+//github.com/rafaelflorindo/InformaticaIntegrado
 class Pessoa{
 	private $nome, $email;
 	
@@ -19,24 +20,33 @@ class Pessoa{
 		$this->setEmail($email);
 		
 		$sql = "insert into pessoa (nome, email) 
-				values ('$this->getNome()', '$this->getEmail()')";
+				values ('{$this->getNome()}', '{$this->getEmail()}')";
 					
 		// 3 - conexão com o banco de dados
 		include("conexao.php");
 	
 		// 4 - executar a consulta ao banco de dados
-	
 		$inserir = $conectar->query($sql);	
+	
 		//verificar se foi gravado as informações	
-		$num_rows = $inserir->affect_rows;
-		
+		$num_rows = $conectar->affected_rows;
 		if ($num_rows==1){
-			return 1;
+			return 1;	
 		}else{
 			return 0;
 		}
-		//github.com/rafaelflorindo/InformaticaIntegrado
+	}
+	public function listarPessoa(){
+		include ("conexao.php");
+		$sql = "SELECT * FROM pessoa order by nome desc";
+		$listaPessoa = array();
 		
+		$listar= $conectar->query($sql);
+
+		while($linha = $listar->fetch_array()) {
+			$listaPessoa[] = $linha;		
+		}	
+		return $listaPessoa;	
 	}
 }
 ?>
