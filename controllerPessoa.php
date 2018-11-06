@@ -5,20 +5,14 @@
 // 2 - montar a string de consulta ao banco de dados
 	//tabela pessoa
 	
+	include("classePessoa.php");
+	$objPessoa = new Pessoa();
+	$inserir = $objPessoa->cadastrar($nome, $email);
 	
-	
-	$sql = "insert into pessoa (nome, email) 
-				values ('$nome', '$email')";
-					
-	// 3 - conexão com o banco de dados
-	include("conexao.php");
-	
-	// 4 - executar a consulta ao banco de dados
-	
-	$inserir = $conectar->query($sql);	
-	
-	
-//verificar se foi gravado as informações	
-	//$num_rows = $inserir->affect_rows;
+	if ($inserir==1){
+		echo "Os dados foram gravados com sucesso!!!";
+	}else {
+		echo "Ocorreu erro ao gravar o registro!!!";
+		}
 	
 ?>

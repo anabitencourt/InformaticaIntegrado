@@ -28,7 +28,15 @@ class Pessoa{
 	
 		$inserir = $conectar->query($sql);	
 		//verificar se foi gravado as informações	
-		echo $num_rows = $inserir->affect_rows;
+		$num_rows = $inserir->affect_rows;
+		
+		if ($num_rows==1){
+			return 1;
+		}else{
+			return 0;
+		}
+		//github.com/rafaelflorindo/InformaticaIntegrado
+		
 	}
 }
 ?>
