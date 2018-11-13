@@ -2,25 +2,28 @@
 //github.com/rafaelflorindo/InformaticaIntegrado
 class Pessoa{
 	private $nome, $email;
+	//$nome = maria ivone, $email = mariaivone@hotmail.com
 	
-	public function setNome($nome){
-		$this->nome = $nome;	
+	public function setNome($nome){//maria ivone
+		$this->nome = $nome;//maria ivone	
 	}
-	public function setEmail($email){
+	public function setEmail($email){//mariaivone@hotmail.com
 		$this->email = $email;	
 	}
 	public function getNome(){
-		return $this->nome;	
+		return $this->nome;	//maria ivone
 	}
 	public function getEmail(){
-		return $this->email;	
+		return $this->email;	//mariaivone@hotmail.com
 	}
 	public function cadastrar($nome, $email){
-		$this->setNome($nome);
-		$this->setEmail($email);
+		$this->setNome($nome);//maria ivone
+		$this->setEmail($email);//mariaivone@hotmail.com
 		
+		//string de consulta (insert, select)
 		$sql = "insert into pessoa (nome, email) 
-				values ('{$this->getNome()}', '{$this->getEmail()}')";
+				values ('{$this->getNome()}', 
+				'{$this->getEmail()}')";
 					
 		// 3 - conexão com o banco de dados
 		include("conexao.php");
@@ -38,7 +41,7 @@ class Pessoa{
 	}
 	public function listarPessoa(){
 		include ("conexao.php");
-		$sql = "SELECT * FROM pessoa order by nome desc";
+		$sql = "SELECT * FROM pessoa order by nome asc";
 		$listaPessoa = array();
 		
 		$listar= $conectar->query($sql);

@@ -1,3 +1,4 @@
+github.com/rafaelflorindo/InformaticaIntegrado
 <h1>CADASTRO DE PESSOA</h1>
 <fieldset>
 	<legend>Dados Pessoais</legend>
@@ -13,10 +14,12 @@
 
 
 <?php
+//o trecho abaixo, lista os registros da tabela pessoa
 	include("classePessoa.php");
+	
 	$pessoa = new Pessoa();
 	$retorno = $pessoa->listarPessoa();
-
+	//contar quantas posições tem no vetor 
 	$numeroRegistro = count($retorno);
 	
 	if($retorno) {
