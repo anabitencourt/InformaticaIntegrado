@@ -1,0 +1,26 @@
+<?php	
+/*
+ + public
+ - private
+ # protected
+*/
+class Noticia{
+	public $id, $titulo, $descricao, $autor;
+	public $dataPublicacao, $curso;
+	
+	public function cadastrar($dados){
+		//$dados=array($titulo, $descricao, $autor, $dataPublicacao, $curso)
+		list($titulo, $descricao, $autor, $dataPublicacao, $curso) = $dados;
+		echo "<hr>Título: ". $titulo;
+		echo "<br>Descrição: ". $descricao;
+		echo "<br>Autor: ". $autor;
+		echo "<br>Publicado em: ". $dataPublicacao;
+		echo "<br>Curso: ". $curso;
+		echo "<hr>";
+	}
+	public function alterar($dados){}
+	public function excluir($id){}
+	public function buscarUm($id){}
+	public function buscarTodos(){}
+}
+?>
