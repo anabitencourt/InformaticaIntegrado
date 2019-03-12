@@ -78,7 +78,23 @@ class Noticia{
 	}
 	public function alterar($dados){}
 	public function excluir($id){}
-	public function buscarUm($id){}
-	public function buscarTodos(){}
-}
+	public function buscarUm($id){}//fecha método buscarUm
+	public function buscarTodos(){
+		$sql = "select * from noticia ORDER by titulo desc ";
+		$conectar = new mysqli("localhost","root","","noticialisboa");
+		$listar = $conectar->query($sql);
+		
+		$noticias = array();
+		
+		while($linha = $listar->fetch_array()) {
+			$noticias[] = $linha;
+		}
+		return $noticias;
+	}//fecha método buscarTodos
+}//fecha classe
 ?>
+
+
+
+
+
