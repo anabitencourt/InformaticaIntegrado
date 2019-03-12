@@ -47,14 +47,34 @@ class Noticia{
 		$this->setDataPublicacao($dataPublicacao);
 		$this->setCurso($curso);
 		
-		echo "<fieldset>";
-		echo "<h2>Os dados abaixo foram armazenados na classe com sucesso!!!</h2>";
-		echo "<br>Título: ". $this->getTitulo();
-		echo "<br>Descrição: ". $this->getDescricao();
-		echo "<br>Autor: ". $this->getAutor();	
-		echo "<br>Publicado em: ". $this->getDataPublicacao();
-		echo "<br>Curso: ". $this->getCurso();
-		echo "</fieldset>";
+		$conectar = new mysqli("localhost","root","","noticialisboa");
+		$sql = "insert into noticia 
+					(titulo, descricao, autor, dataPublicacao, curso)
+					values (
+					'{$this->getTitulo()}', 
+					'{$this->getDescricao()}',
+					'{$this->getAutor()}', 
+					'{$this->getDataPublicacao()}',
+					'{$this->getCurso()}'
+					)		
+		";		
+		$gravar = $conectar->query($sql);
+		#verificar quantos registros foram afetados com o $sql
+		$num = $conectar->affected_rows;
+		if($num==1) {
+			echo "<fieldset>";
+			echo "<h2>Os dados abaixo foram armazenados na classe com sucesso!!!</h2>";
+			echo "<br>Título: ". $this->getTitulo();
+			echo "<br>Descrição: ". $this->getDescricao();
+			echo "<br>Autor: ". $this->getAutor();	
+			echo "<br>Publicado em: ". $this->getDataPublicacao();
+			echo "<br>Curso: ". $this->getCurso();
+			echo "</fieldset>";
+		}else {
+			echo "<fieldset>";
+			echo "Erro ao gravar os dados";	
+			echo "</fieldset>";
+		}
 	}
 	public function alterar($dados){}
 	public function excluir($id){}
