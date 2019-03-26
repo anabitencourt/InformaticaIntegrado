@@ -3,7 +3,7 @@
 	
 class Noticia{
 	public $id, $titulo, $descricao, $autor;
-	public $dataPublicacao, $curso;
+	public $dataPublicacao, $curso, $situacao;
 	/********************************************************/
 	public function setTitulo($titulo){
 		$this->titulo = $titulo;
@@ -20,6 +20,12 @@ class Noticia{
 	public function setCurso($curso){
 		$this->curso = $curso;
 	}
+	public function setId($id){
+		$this->id = $id;	
+	}
+	public function setSituacao($situacao){
+		$this->situacao = $situacao;	
+	}
 	/********************************************************/
 	public function getTitulo(){
 		return $this->titulo;
@@ -35,6 +41,12 @@ class Noticia{
 	}
 	public function getCurso(){
 		return $this->curso;
+	}
+	public function getId(){
+		return $this->id;
+	}
+	public function getSituacao(){
+		return $this->situacao;
 	}
 	/********************************************************/
 	public function cadastrar($dados){
@@ -77,15 +89,32 @@ class Noticia{
 		}
 	}
 	public function alterar($dados){}
-	public function excluir($id){}
+	
+	public function ativarInativar($id,$situacao){
+		$this->setId($id);
+		$this->setSituacao($situacao);
+		
+		echo $sql = "update noticia set
+					ativo=" . $this->getSituacao() . " where id= " . $this->getId();		
+					//exit;
+		$conectar = new mysqli("localhost","root","","noticialisboa");
+		$executar = $conectar->query($sql);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public function buscarUm($id){}//fecha método buscarUm
 	public function buscarTodos(){
 		$sql = "select * from noticia ORDER by titulo desc ";
 		$conectar = new mysqli("localhost","root","","noticialisboa");
 		$listar = $conectar->query($sql);
-		
 		$noticias = array();
-		
 		while($linha = $listar->fetch_array()) {
 			$noticias[] = $linha;
 		}
