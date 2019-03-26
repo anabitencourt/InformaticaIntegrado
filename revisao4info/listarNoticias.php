@@ -2,18 +2,22 @@
 	include ("Noticia.php");
 	$listarNoticia = new Noticia();
 	$valor = $listarNoticia->buscarTodos();
-	
-	print_r($valor);
 ?>	
 <table border="1">
 	<th>Item</th>
 	<th>Título</th>
 	<th>Autor</th>
 	<th>Ação</th>
+	<?php
+		foreach($valor as $linha){
+	?>
 	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td><?php echo $linha["id"]; ?></td>
+		<td><?php echo $linha["titulo"]; ?></td>
+		<td><?php echo $linha["autor"]; ?></td>
+		<td>[ALTERAR][INATIVAR]</td>
 	</tr>
+	<?php
+	}		
+	?>
 </table>
