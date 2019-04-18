@@ -40,21 +40,31 @@
 </nav> 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-sm-12">
 			<form action="/action_page.php">
-			  <div class="form-group">
-			    <label for="titulo">Título:</label>
-			    <input type="text" class="form-control" id="titulo" name="titulo">
-			  </div>
-			  <div class="form-group">
-			    <label for="autor">Autor:</label>
-			    <input type="text" class="form-control" id="autor" name="autor">
-			  </div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+					    <label for="titulo">Título:</label>
+					    <input type="text" class="form-control" id="titulo" name="titulo">
+			  		</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+			  		  <label for="autor">Autor:</label>
+			 		   <input type="text" class="form-control" id="autor" name="autor">
+				  </div>
+				</div>
+			</div>
+				
+				
+			  
+
 			  <div class="form-group">
 			    <label for="curso">Curso:</label>
 			    <input type="text" class="form-control" id="curso" name="curso">
 			  </div>
-			  <div class="form-group">
+			  <div class="form-group"	>
 			    <label for="descricao">Descrição:</label>
 			    <textarea class="form-control" id="descricao" name="descricao">
 			    </textarea>
