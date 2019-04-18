@@ -40,56 +40,39 @@
 </nav> 
 <div class="container">
 	<div class="row">
+	<?php
+	include ("../Noticia.php");
+	$listarNoticia = new Noticia();
+	$valor = $listarNoticia->buscarTodos();
+?>	
 		<div class="col-sm-12">
-			<form action="/action_page.php">
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="form-group">
-					    <label for="titulo">Título:</label>
-					    <input type="text" class="form-control" id="titulo" name="titulo">
-			  		</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="form-group">
-			  		  <label for="autor">Autor:</label>
-			 		   <input type="text" class="form-control" id="autor" name="autor">
-				  </div>
-				</div>
-			</div>
-				
-				
-			<div class="row">
-				<div class="col-sm-6">
-				  <div class="form-group">
-				    <label for="curso">Curso:</label>
-				    <input type="text" class="form-control" id="curso" name="curso">
-				  </div>
-				</div>
-				<div class="col-sm-6">
-  				  <div class="form-group">
-  				  <h2>Situação</h2>
-					<div class="form-check">
-					    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-					    <label class="form-check-label" for="exampleCheck1">Ativo</label>
-					</div>
-					<div class="form-check">
-					    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-					    <label class="form-check-label" for="exampleCheck1">Inativo</label>
-					</div>
-				  </div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6">
-			  		<div class="form-group"	>
-			   		 <label for="descricao">Descrição:</label>
-			    			<textarea class="form-control" id="descricao" name="descricao">
-			    </textarea>
-			  		</div>
-				</div>
-			</div>
-			  <button type="submit" class="btn btn-primary">CADASTRAR</button>
-			</form> 	
+			<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Título</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
+		foreach($valor as $linha){
+	?>
+    <tr>
+      <th scope="row"><?php echo $linha["id"]; ?></th>
+      <td><?php echo $linha["titulo"]; ?></td>
+      <td><?php echo $linha["autor"]; ?></td>
+      <td><a href=controllerAlterar.php<?=$linha["id"]?>><button type="button" class="btn btn-warning">Alterar</button></a>
+			<a href=controllerAtivarInativar.php?id=<?=$linha["id"]?>&situacao=0>
+			<button type="button" class="btn btn-success">Ativar</button></a>
+			<a href=controllerAtivarInativar.php?id=<?=$linha["id"]?>&situacao=1><button type="button" class="btn btn-danger">Inativar</button></a></td>
+    </tr>
+  <?php
+  }
+  ?>  
+  </tbody>
+</table>
 		</div><!--fecha coluna principal-->
 	</div><!--fecha linha principal-->
 </div><!--fecha container-->
