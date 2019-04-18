@@ -58,17 +58,32 @@
 			</div>
 				
 				
-			  
-
-			  <div class="form-group">
-			    <label for="curso">Curso:</label>
-			    <input type="text" class="form-control" id="curso" name="curso">
-			  </div>
-			  <div class="form-group"	>
-			    <label for="descricao">Descrição:</label>
-			    <textarea class="form-control" id="descricao" name="descricao">
+			<div class="row">
+				<div class="col-sm-6">
+				  <div class="form-group">
+				    <label for="curso">Curso:</label>
+				    <input type="text" class="form-control" id="curso" name="curso">
+				  </div>
+				</div>
+				<div class="col-sm-6">
+  				  <div class="form-group">
+  				  <h2>Situação</h2>
+					<div class="form-check">
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+					    <label class="form-check-label" for="exampleCheck1">Ativo</label>
+					</div>
+				  </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+			  		<div class="form-group"	>
+			   		 <label for="descricao">Descrição:</label>
+			    			<textarea class="form-control" id="descricao" name="descricao">
 			    </textarea>
-			  </div>
+			  		</div>
+				</div>
+			</div>
 			  <button type="submit" class="btn btn-primary">CADASTRAR</button>
 			</form> 	
 		</div><!--fecha coluna principal-->
