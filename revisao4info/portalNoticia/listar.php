@@ -41,10 +41,10 @@
 <div class="container">
 	<div class="row">
 	<?php
-	include ("../Noticia.php");
-	$listarNoticia = new Noticia();
-	$valor = $listarNoticia->buscarTodos();
-?>	
+		include ("Noticia.php");
+		$listarNoticia = new Noticia();
+		$valor = $listarNoticia->buscarTodos();
+	?>	
 		<div class="col-sm-12">
 			<table class="table table-striped">
   <thead>
