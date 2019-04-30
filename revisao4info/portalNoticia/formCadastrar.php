@@ -15,7 +15,7 @@
 	
 	<div class="row">
 		<div class="col-sm-12">
-				
+			<form action="controllerNoticia.php" method="post">
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group">
@@ -60,6 +60,12 @@
 			    			<textarea class="form-control" id="descricao" name="descricao">
 			    </textarea>
 			  		</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="form-group">
+			  		  <label for="dataPublicacao">Data Publicação:</label>
+			 		   <input type="date" class="form-control" id="dataPublicacao" name="dataPublicacao">
+				  </div>
 				</div>
 			</div>
 			  <button type="submit" class="btn btn-primary">CADASTRAR</button>
