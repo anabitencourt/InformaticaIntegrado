@@ -63,10 +63,16 @@
       <th scope="row"><?php echo $linha["id"]; ?></th>
       <td><?php echo $linha["titulo"]; ?></td>
       <td><?php echo $linha["autor"]; ?></td>
-      <td><a href=controllerAlterar.php<?=$linha["id"]?>><button type="button" class="btn btn-warning">Alterar</button></a>
+      <td><a href=controllerAlterar.php?id=<?=$linha["id"]?>>
+      			<button type="button" class="btn btn-warning btn-sm">Alterar</button>
+      	</a>
+			<a href=controllerAtivarInativar.php?id=<?=$linha["id"]?>&situacao=1>
+				<button type="button" class="btn btn-success btn-sm">Ativar</button>
+			</a>
 			<a href=controllerAtivarInativar.php?id=<?=$linha["id"]?>&situacao=0>
-			<button type="button" class="btn btn-success">Ativar</button></a>
-			<a href=controllerAtivarInativar.php?id=<?=$linha["id"]?>&situacao=1><button type="button" class="btn btn-danger">Inativar</button></a></td>
+				<button type="button" class="btn btn-danger btn-sm">Inativar</button>
+			</a>
+		</td>
     </tr>
   <?php
   }

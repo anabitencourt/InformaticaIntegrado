@@ -99,19 +99,16 @@ class Noticia{
 		
 		$conectar = new mysqli("localhost","root","","noticialisboa");
 		$executar = $conectar->query($sql);
+		$num = $conectar->affected_rows;
+		if($num==1) {
+			return 1;
+		}else {
+			return 0;
+		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public function buscarUm($id){}//fecha método buscarUm
 	public function buscarTodos(){
-		$sql = "select * from noticia ORDER by titulo desc ";
+		$sql = "select * from noticia ORDER by titulo ASC";
 		$conectar = new mysqli("localhost","root","","noticialisboa");
 		$listar = $conectar->query($sql);
 		$noticias = array();
