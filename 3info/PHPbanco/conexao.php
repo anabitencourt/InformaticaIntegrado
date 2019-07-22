@@ -3,19 +3,14 @@
 	$usuario = "root";
 	$senha = "";
 	$database = "RafaelVendas";
-	
 	$conectar = new mysqli($local, $usuario, $senha, $database);
 	
 	$stringBusca = "select * from cliente";
-		
-		
-		
 	$retornoCliente = $conectar->query($stringBusca);
 	$listarDados = array();//array dinâmico
 	while($listar = $retornoCliente->fetch_array()) {
 		$listarDados[] = $listar;	
 	}	
-	//var_dump($listarDados);
 	?>
 	<table>
 	<th>Item</th>
