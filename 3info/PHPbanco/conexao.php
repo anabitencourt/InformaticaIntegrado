@@ -6,7 +6,9 @@
 	$conectar = new mysqli($local, $usuario, $senha, $database);
 	
 	$stringBusca = "select * from cliente";
+	
 	$retornoCliente = $conectar->query($stringBusca);
+	
 	$listarDados = array();//array dinâmico
 	while($listar = $retornoCliente->fetch_array()) {
 		$listarDados[] = $listar;	
