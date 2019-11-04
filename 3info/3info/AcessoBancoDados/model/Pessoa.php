@@ -24,11 +24,12 @@ class Pessoa{
     //executar a query
     include("Conexao.php");
 
+    $conectar = new Conexao();
 
-    if($retornoInsert = $conectar->query($sqlInsert)){
-      return 1;//retona 1 caso seja gravado
+    if($retornoInsert = $conectar->getConectar()->query($sqlInsert)){
+      return 1;//retorna 1 caso seja gravado
     }else {
-      return 0;//retona 0 caso não seja gravado
+      return 0;//retorna 0 caso não seja gravado
     }
   }
   public function listar(){
