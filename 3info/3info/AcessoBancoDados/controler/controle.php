@@ -1,18 +1,17 @@
 <?php
-include("../model/Pessoa.php");
-$pessoa1 = new Pessoa();
+  include("../model/Pessoa.php");
+  $pessoa1 = new Pessoa();
 
-$nome = $_POST["nome"];
-$email =$_POST["email"];
+  $nome = $_POST["nome"];
+  $email =$_POST["email"];
 
-$pessoa1->cadastrar($nome, $email);
-$pessoa1->listar();
+  $inserir = $pessoa1->cadastrar($nome, $email);
+  if ($inserir==1){
+    echo "Dados gravados com sucesso";
+  }else{
+    echo "Erro ao gravar os dados";
+  }
 
-
-//ou
-echo "<hr>";
-$pessoa1->setNome($_POST["nome"]);
-$pessoa1->setEmail($_POST["email"]);
-$pessoa1->listar();
+  $pessoa1->listar();
 
 ?>
