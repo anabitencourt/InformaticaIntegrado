@@ -1,6 +1,14 @@
 <?php
 class Pessoa{
-  private $nome, $email;
+  private $nome, $email, $dataNascimento;
+
+  public function setDataNascimento($dataNascimento){
+    $this->dataNascimento=$dataNascimento;
+  }
+  public function getDataNascimento(){
+    return $this->dataNascimento;
+  }
+
   public function setNome($nome){
     $this->nome = $nome;
   }
@@ -13,14 +21,16 @@ class Pessoa{
   public function getEmail(){
     return $this->email;
   }
-  public function cadastrar($nome, $email){
+  public function cadastrar($nome, $email, $dataNascimento){
     $this->setNome($nome);
     $this->setEmail($email);
+    $this->setDataNascimento($dataNascimento);
     //query de consulta para inclusão
     echo $sqlInsert = "insert into pessoa
-    (nome, email)
+    (nome, email, dataNascimento)
     values
-    ('{$this->getNome()}','{$this->getEmail()}')";
+    ('{$this->getNome()}','{$this->getEmail()}',
+    '{$this->getDataNascimento()}')";
     //executar a query
     include("Conexao.php");
 
@@ -51,12 +61,16 @@ class Pessoa{
           <td>Id</td>
           <td>Nome</td>
           <td>E-mail</td>
+          <td>Data Nascimento</td>
+          <td>Data Cadastro</td>
         </tr>
         <?php
         foreach ($dados as $key => $value) {
           echo "<tr><td>" . $value["id"];
           echo "</td><td>" . $value["nome"];
           echo "</td><td>" . $value["email"];
+          echo "</td><td>" . $value["dataNascimento"];
+          echo "</td><td>" . $value["dataCadastro"];
           echo "</td></tr>";
         }
         ?>
