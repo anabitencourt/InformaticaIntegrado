@@ -33,8 +33,36 @@ class Pessoa{
     }
   }
   public function listar(){
-    echo "Nome: " . $this->getNome();
-    echo "<br>E-mail: " . $this->getEmail();
+    $lista = "select * from pessoa";
+    include ("Conexao.php");
+    $objetoListar = new Conexao();
+
+    $retornoBanco = $objetoListar->getConectar()->query($lista);
+    $dados = array();
+
+    while($temp = $retornoBanco->fetch_array()) {
+      $dados[]=$temp;
+    }
+    echo "Foram encontrados " . count($dados) . " registros.";//verifica quantos registros tem no vetor
+    if (count($dados) > 0){
+      ?>
+      <table border=1>
+        <tr>
+          <td>Id</td>
+          <td>Nome</td>
+          <td>E-mail</td>
+        </tr>
+        <?php
+        foreach ($dados as $key => $value) {
+          echo "<tr><td>" . $value["id"];
+          echo "</td><td>" . $value["nome"];
+          echo "</td><td>" . $value["email"];
+          echo "</td></tr>";
+        }
+        ?>
+      </table>
+      <?php
+    }
   }
 }
 ?>
