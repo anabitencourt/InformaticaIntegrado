@@ -8,8 +8,8 @@
 
   $inserir = $pessoa1->cadastrar($nome, $email, $dataNascimento);
   if ($inserir==1){
-    echo "Dados gravados com sucesso";
+    header('location: ../view/formulario.php?mensagem=sucesso');
   }else{
-    echo "Erro ao gravar os dados";
+    header('location: ../view/formulario.php?mensagem=erro');
   }
 ?>
